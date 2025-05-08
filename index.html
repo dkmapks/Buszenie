@@ -1,27 +1,85 @@
 <!DOCTYPE html>
 <html lang="pl">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Buszenie</title>
-  <link rel="manifest" href="manifest.json" />
-  <link rel="stylesheet" href="style.css" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DDrugs 2.0</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div class="container">
-    <h1>🚌 Buszenie</h1>
-    <select id="classSelector">
-      <option value="8a">Klasa 8a</option>
-      <option value="8b">Klasa 8b</option>
-      <option value="8c">Klasa 8c</option>
-      <option value="8d">Klasa 8d</option>
-    </select>
-    <div class="info">
-      <p id="time"></p>
-      <p id="currentLesson"></p>
-      <p id="nextLesson"></p>
-    </div>
-  </div>
+  <h1>DDrugs 2.0</h1>
+  <p>Kasa: <span id="cash"></span> zł</p>
+  <p>BTC: <span id="btc"></span></p>
+  <p>Magazyn: <span id="storageUsed"></span>/<span id="storageLimit"></span> g</p>
+
+  <h2>Magazyn</h2>
+  <div id="warehouseOptions"></div>
+
+  <h2>Inwentarz</h2>
+  <div id="inventory"></div>
+
+  <h2>Zakup ręczny</h2>
+  <select id="buyDrug">
+    <option value="kokaina">Kokaina</option>
+    <option value="marihuana">Marihuana</option>
+    <option value="mefedron">Mefedron</option>
+    <option value="amfetamina">Amfetamina</option>
+    <option value="pixy">Pixy</option>
+  </select>
+  <input id="buyAmount" type="number" placeholder="ilość" />
+  <input id="buyPrice" type="number" placeholder="cena" />
+  <button onclick="manualBuy()">Kup</button>
+
+  <h2>Sprzedaż ręczna</h2>
+  <select id="sellDrug">
+    <option value="kokaina">Kokaina</option>
+    <option value="marihuana">Marihuana</option>
+    <option value="mefedron">Mefedron</option>
+    <option value="amfetamina">Amfetamina</option>
+    <option value="pixy">Pixy</option>
+  </select>
+  <input id="sellAmount" type="number" placeholder="ilość" />
+  <input id="sellPrice" type="number" placeholder="cena" />
+  <button onclick="manualSell()">Sprzedaj</button>
+
+  <h2>Oferty dostawców</h2>
+  <div id="supplierOffers"></div>
+
+  <h2>Klienci</h2>
+  <div id="clients"></div>
+
+  <h2>Klienci hurtowi</h2>
+  <div id="wholesaleClients"></div>
+
+  <h2>Czarny Rynek</h2>
+  <div id="blackMarket"></div>
+
+  <h2>Podróże (ulepszenia)</h2>
+  <div id="travel"></div>
+
+  <h2>Pracownicy</h2>
+  <select id="workerName"></select>
+  <select id="workerDrug">
+    <option value="kokaina">Kokaina</option>
+    <option value="marihuana">Marihuana</option>
+    <option value="mefedron">Mefedron</option>
+    <option value="amfetamina">Amfetamina</option>
+    <option value="pixy">Pixy</option>
+  </select>
+  <input id="workerAmount" type="number" placeholder="ilość" />
+  <input id="workerPrice" type="number" placeholder="cena" />
+  <button onclick="assignToWorker()">Wyślij</button>
+  <div id="workersList"></div>
+
+  <h2>BTC Portfel</h2>
+  <input id="btcAmount" type="number" placeholder="Ilość BTC" />
+  <button onclick="btc.buy()">Kup BTC</button>
+  <button onclick="btc.sell()">Sprzedaj BTC</button>
+
+  <h2>Zapis / Wczytaj grę</h2>
+  <button onclick="saveGame()">Zapisz grę</button>
+  <button onclick="loadGame()">Wczytaj grę</button>
+
   <script src="script.js"></script>
 </body>
 </html>
