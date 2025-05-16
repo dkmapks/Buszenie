@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DShop – Sklep z Alkoholem</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <h1>DShop</h1>
+    <button onclick="toggleCart()">Koszyk (<span id="cart-count">0</span>)</button>
+  </header>
+
+  <main>
+    <section class="add-product">
+      <h2>Dodaj swój produkt</h2>
+      <input type="text" id="product-name" placeholder="Nazwa produktu" />
+      <input type="number" id="product-price" placeholder="Cena (zł)" />
+      <button onclick="addProduct()">Dodaj</button>
+    </section>
+
+    <section id="product-list"></section>
+  </main>
+
+  <aside id="cart" class="hidden">
+    <h2>Twój Koszyk</h2>
+    <ul id="cart-items"></ul>
+    <p>Suma: <span id="total">0</span> zł</p>
+
+    <h3>Dane do płatności</h3>
+    <form action="https://getform.io/f/bolmxexa" method="POST">
+      <input type="text" name="Imię" placeholder="Imię" required />
+      <input type="text" name="Nazwisko" placeholder="Nazwisko" required />
+      <input type="text" name="Adres" placeholder="Adres aktualnego pobytu" required />
+      <input type="hidden" name="Zamówienie" id="order-data" />
+      <button type="submit">Złóż zamówienie</button>
+    </form>
+
+    <button onclick="toggleCart()">Zamknij</button>
+  </aside>
+
+  <script src="script.js"></script>
+</body>
+</html>
